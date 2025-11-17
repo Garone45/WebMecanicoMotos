@@ -39,6 +39,14 @@
             </div>
 
             <div class="form-group mb-3">
+                <label for="txtDescripcion">Descripción (Problema reportado / Notas):</label>
+                <asp:TextBox ID="txtDescripcion" runat="server" 
+                    CssClass="form-control" 
+                    TextMode="MultiLine" 
+                    Rows="3" 
+                    placeholder="Ej: El cliente reporta un ruido al frenar. Revisar también nivel de aceite." />
+            </div>
+            <div class="form-group mb-3">
                 <label for="txtCostoServicio">Costo Acordado del Servicio:</label>
                 <asp:TextBox ID="txtCostoServicio" runat="server" CssClass="form-control" placeholder="Ej: 12000.00" required />
             </div>

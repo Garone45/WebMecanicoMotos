@@ -143,17 +143,18 @@ namespace TallerMotos
             {
                 // 3. Recolección de Parámetros (5 valores)
                 string patente = ddlPatente.SelectedValue.Trim();
-                string dniCliente = ddlDniCliente.SelectedValue.Trim();
                 string dniMecanico = ddlMecanico.SelectedValue.Trim();
                 string servicioDesc = ddlServicioDesc.SelectedValue.Trim();
+                string descripcion = txtDescripcion.Text.Trim(); 
+
 
                 // 4. LLAMADA AL SP CON 5 PARÁMETROS
                 negocio.RegistrarNuevaOrden(
                     patente,
-                    dniCliente,
                     dniMecanico,
                     servicioDesc,
-                    costoServicio
+                    costoServicio,
+                    descripcion
                 );
 
                 // Si no hubo excepción, fue exitoso

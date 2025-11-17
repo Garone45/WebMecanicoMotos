@@ -8,25 +8,26 @@ namespace Negocio
     {
 
         public void RegistrarNuevaOrden(
-    string patente,
-    string dniCliente,
-    string dniMecanico,
-    string servicioDesc,
-    decimal costoServicio
-    )
+        
+        string patente,
+        string dniMecanico,
+        string servicioDesc,
+        decimal costoServicio,
+        string descripcion
+        )
 
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearProcedimiento("SP_RegistrarOrdenSoloExistente");
+                datos.setearProcedimiento("SP_RegistrarOrdenCompleta");
 
                 // Seteo de los 5 parámetros
                 datos.setearParametro("@Patente", patente);
-                datos.setearParametro("@DniCliente", dniCliente);
-                datos.setearParametro("@MecanicoDni", dniMecanico);
+                datos.setearParametro("@MecanicoPrincipalDni", dniMecanico);
                 datos.setearParametro("@ServicioDesc", servicioDesc);
                 datos.setearParametro("@CostoServicio", costoServicio);
+                datos.setearParametro("@DescripcionOrden", descripcion);
 
                 datos.ejecutarAccion();
             }
@@ -241,13 +242,14 @@ namespace Negocio
             {
                 // La Patente y DNI deben recortarse para mayor robustez
                 datos.setearConsulta(@"
-            SELECT 
-                LTRIM(RTRIM(M.Patente)) AS Patente, 
-                M.Marca + ' ' + M.Modelo AS DescripcionMotoCompleta
-            FROM Motos M
-            JOIN Usuario U ON M.id_Usuario = U.id_Usuario
-            WHERE LTRIM(RTRIM(U.Dni)) = @DniCliente
-            ORDER BY M.Patente");
+                SELECT 
+                    M.id_Moto,
+                    LTRIM(RTRIM(M.Patente)) AS Patente, 
+                    M.Marca + ' ' + M.Modelo AS DescripcionMotoCompleta
+                FROM Motos M
+                JOIN Usuario U ON M.id_Usuario = U.id_Usuario
+                WHERE LTRIM(RTRIM(U.Dni)) = @DniCliente
+                ORDER BY M.Patente;");
 
                 datos.setearParametro("@DniCliente", dni);
                 datos.ejecutarLectura();
