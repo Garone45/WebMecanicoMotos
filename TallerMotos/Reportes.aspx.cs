@@ -1,5 +1,6 @@
 ﻿using Negocio;
 using System;
+using System.Data;
 using System.Web.UI.WebControls;
 
 namespace TallerMotos 
@@ -25,6 +26,10 @@ namespace TallerMotos
                 // 3. Cargar la Vista de Días en Taller (NUEVA)
                 GridViewDiasTaller.DataSource = negocio.ObtenerReporteDiasTaller();
                 GridViewDiasTaller.DataBind();
+
+                DataTable dtDetalleServicios = negocio.ObtenerDetalleServiciosPorReparacion(); // Usa el método que agregaste a ReparacionNegocio
+                GridViewDetalleServicios.DataSource = dtDetalleServicios;
+                GridViewDetalleServicios.DataBind();
             }
             catch (Exception ex)
             {

@@ -1,24 +1,25 @@
 ﻿using Negocio;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace TallerMotos
 {
     public partial class NuevaOrden : System.Web.UI.Page
     {
-        // Asegúrate de que las declaraciones de los controles existan en el designer.cs
-        // (o declaralas manualmente si persiste el error)
+        // Asegúrate de que los nuevos controles estén declarados en designer.cs:
+        // ddlDniCliente, ddlPatente, ddlMecanico, ddlServicioDesc, txtCostoServicio, lblMensaje
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 CargarControles();
+                // Si hay un valor por defecto seleccionado al inicio, cargamos las motos
+                if (!string.IsNullOrEmpty(ddlDniCliente.SelectedValue))
+                {
+                    CargarMotos(ddlDniCliente.SelectedValue);
+                }
             }
         }
 
@@ -28,7 +29,7 @@ namespace TallerMotos
 
             try
             {
-                // 1. Carga de SERVICIOS (Tu código existente)
+                // 1. Carga de SERVICIOS
                 DataTable dtServicios = negocio.ObtenerCatalogoServicios();
                 ddlServicioDesc.DataSource = dtServicios;
                 ddlServicioDesc.DataTextField = "Descripcion";
@@ -36,72 +37,135 @@ namespace TallerMotos
                 ddlServicioDesc.DataBind();
                 ddlServicioDesc.Items.Insert(0, new ListItem("— Seleccione el Servicio —", ""));
 
-
-                // -----------------------------------------------------
-                // 2. Carga de MECÁNICOS (NUEVA LÓGICA)
-                // -----------------------------------------------------
+                // 2. Carga de MECÁNICOS
                 DataTable dtMecanicos = negocio.ObtenerCatalogoMecanicos();
-
                 ddlMecanico.DataSource = dtMecanicos;
-
-
                 ddlMecanico.DataTextField = "NombreCompleto";
                 ddlMecanico.DataValueField = "Dni";
-
                 ddlMecanico.DataBind();
                 ddlMecanico.Items.Insert(0, new ListItem("— Seleccione el Mecánico —", ""));
 
+                // 3. Carga de CLIENTES (NUEVA LÓGICA)
+                DataTable dtClientes = negocio.ObtenerCatalogoClientes(); // Requiere el nuevo método en Negocio
+                ddlDniCliente.DataSource = dtClientes;
+                ddlDniCliente.DataTextField = "NombreCompleto";
+                ddlDniCliente.DataValueField = "Dni"; // Usamos el DNI como valor
+                ddlDniCliente.DataBind();
+                ddlDniCliente.Items.Insert(0, new ListItem("— Seleccione el Cliente —", ""));
+
+                // Inicializar el DDL de Patentes
+                ddlPatente.Items.Clear();
+                ddlPatente.Items.Insert(0, new ListItem("— Primero seleccione un Cliente —", ""));
             }
             catch (Exception ex)
             {
-                // Muestra el error de conexión si el SQL falla al obtener los catálogos
-                // Asegúrate de que lblMensaje esté accesible en el Page_Load para mostrar errores
-                throw new Exception("Fallo al cargar catálogos. Verifique la conexión a SQL Server y los datos de las tablas Mecanico/Servicio. Error: " + ex.Message);
+                // Muestra el error de conexión si el SQL falla
+                lblMensaje.Text = "❌ ERROR de conexión al cargar catálogos: " + ex.Message;
+                lblMensaje.CssClass = "alert-danger";
+                // Considera si quieres lanzar el error o solo mostrarlo en la UI
+                // throw new Exception("Fallo al cargar catálogos. Error: " + ex.Message);
             }
         }
 
-            protected void btnRegistrar_Click(object sender, EventArgs e)
+        // Evento que se dispara cuando cambia la selección en ddlDniCliente
+        protected void ddlDniCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string dniSeleccionado = ddlDniCliente.SelectedValue;
+
+            if (string.IsNullOrEmpty(dniSeleccionado))
             {
-                ReparacionNegocio negocio = new ReparacionNegocio();
-                decimal costoServicio;
+                // Si no se selecciona ningún cliente, limpiar la lista de motos
+                ddlPatente.Items.Clear();
+                ddlPatente.Items.Insert(0, new ListItem("— Seleccione la Patente —", ""));
+                return;
+            }
 
-                if (!decimal.TryParse(txtCostoServicio.Text.Trim(), out costoServicio))
+            // Llamar a la función que carga las motos del cliente
+            CargarMotos(dniSeleccionado);
+        }
+
+        // Método auxiliar para cargar las motos de un DNI específico
+        private void CargarMotos(string dni)
+        {
+            ReparacionNegocio negocio = new ReparacionNegocio();
+            ddlPatente.Items.Clear(); // Limpiar antes de cargar
+
+            try
+            {
+                // Requiere el nuevo método en Negocio
+                DataTable dtMotos = negocio.ObtenerMotosPorDniCliente(dni);
+
+                ddlPatente.DataSource = dtMotos;
+                ddlPatente.DataTextField = "DescripcionMotoCompleta"; // Muestra Marca y Modelo
+                ddlPatente.DataValueField = "Patente"; // Usa la Patente como valor
+                ddlPatente.DataBind();
+
+                if (dtMotos.Rows.Count == 0)
                 {
-                    lblMensaje.Text = "ERROR: Ingrese un costo válido.";
-                    lblMensaje.CssClass = "alert-danger";
-                    return;
+                    ddlPatente.Items.Insert(0, new ListItem("— No hay motos registradas para este cliente —", ""));
                 }
-
-                try
+                else
                 {
-                    // 1. Recolección de Parámetros
-                    string dniMecanico = ddlMecanico.SelectedValue.Trim();
-
-                    // 2. LLAMADA AL SP CON 9 PARÁMETROS (La lógica de inserción de moto está en el SP)
-                    negocio.RegistrarNuevaOrden(
-                        // --- DATOS DE MOTO/CLIENTE ---
-                        txtPatente.Text.Trim(),
-                        txtMarca.Text.Trim(),
-                        txtModelo.Text.Trim(),
-                        txtDniCliente.Text.Trim(), // Nuevo parámetro de Cliente
-
-                        // --- DATOS DE ORDEN/SERVICIO ---
-                        dniMecanico, // Mecánico Principal DNI
-                        txtDescripcionOrden.Text,
-                        ddlServicioDesc.SelectedValue,
-                        costoServicio,
-                        dniMecanico // Mecánico Detalle DNI
-                    );
-
-                    lblMensaje.Text = "✅ Orden y Moto (si era nueva) registradas con éxito.";
-                    lblMensaje.CssClass = "alert-success";
-                }
-                catch (Exception ex)
-                {
-                    // El SP arrojará el error si el DNI del Cliente no existe.
-                    lblMensaje.Text = "❌ ERROR: " + ex.Message;
-                    lblMensaje.CssClass = "alert-danger";
+                    // Inserta una opción por defecto al inicio si hay datos
+                    ddlPatente.Items.Insert(0, new ListItem("— Seleccione una moto —", ""));
                 }
             }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "❌ ERROR al cargar las motos: " + ex.Message;
+                lblMensaje.CssClass = "alert-danger";
+            }
+        }
+
+        protected void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            ReparacionNegocio negocio = new ReparacionNegocio();
+            decimal costoServicio;
+
+            // 1. Validación de Costo
+            if (!decimal.TryParse(txtCostoServicio.Text.Trim(), out costoServicio))
+            {
+                lblMensaje.Text = "ERROR: Ingrese un costo válido (numérico).";
+                lblMensaje.CssClass = "alert-danger";
+                return;
+            }
+
+            // 2. Validación de DropDownLists (Asegurar que se seleccionó algo)
+            if (ddlDniCliente.SelectedValue == "" || ddlMecanico.SelectedValue == "" ||
+                ddlServicioDesc.SelectedValue == "" || ddlPatente.SelectedValue == "")
+            {
+                lblMensaje.Text = "ERROR: Debe seleccionar un valor válido para Cliente, Patente, Mecánico y Servicio.";
+                lblMensaje.CssClass = "alert-danger";
+                return;
+            }
+
+            try
+            {
+                // 3. Recolección de Parámetros (5 valores)
+                string patente = ddlPatente.SelectedValue.Trim();
+                string dniCliente = ddlDniCliente.SelectedValue.Trim();
+                string dniMecanico = ddlMecanico.SelectedValue.Trim();
+                string servicioDesc = ddlServicioDesc.SelectedValue.Trim();
+
+                // 4. LLAMADA AL SP CON 5 PARÁMETROS
+                negocio.RegistrarNuevaOrden(
+                    patente,
+                    dniCliente,
+                    dniMecanico,
+                    servicioDesc,
+                    costoServicio
+                );
+
+                // Si no hubo excepción, fue exitoso
+                lblMensaje.Text = "✅ Orden de reparación registrada con éxito.";
+                lblMensaje.CssClass = "alert-success";
+            }
+            catch (Exception ex)
+            {
+                // Muestra el error de SQL/SP
+                lblMensaje.Text = "❌ ERROR al registrar: " + ex.Message;
+                lblMensaje.CssClass = "alert-danger";
+            }
+        }
     }
 }

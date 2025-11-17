@@ -1,0 +1,6 @@
+C:\Users\Pancho\OneDrive\Desktop\Utn\2do cuatri SegundoAño2025\Prog 3\WebASP\BD2 TPI\Negocio\bin\Debug\Negocio.dll
+C:\Users\Pancho\OneDrive\Desktop\Utn\2do cuatri SegundoAño2025\Prog 3\WebASP\BD2 TPI\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Pancho\OneDrive\Desktop\Utn\2do cuatri SegundoAño2025\Prog 3\WebASP\BD2 TPI\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\Pancho\OneDrive\Desktop\Utn\2do cuatri SegundoAño2025\Prog 3\WebASP\BD2 TPI\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Pancho\OneDrive\Desktop\Utn\2do cuatri SegundoAño2025\Prog 3\WebASP\BD2 TPI\Negocio\obj\Debug\Negocio.dll
+C:\Users\Pancho\OneDrive\Desktop\Utn\2do cuatri SegundoAño2025\Prog 3\WebASP\BD2 TPI\Negocio\obj\Debug\Negocio.pdb

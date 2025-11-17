@@ -9,34 +9,24 @@ namespace Negocio
 
         public void RegistrarNuevaOrden(
     string patente,
-    string marca,
-    string modelo,
     string dniCliente,
-    string dniMecanicoPrincipal, // Parámetro 5
-    string descripcionOrden,
+    string dniMecanico,
     string servicioDesc,
-    decimal costoServicio,
-    string dniMecanicoDetalle    // Parámetro 9
-)
+    decimal costoServicio
+    )
+
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearProcedimiento("SP_RegistrarOrdenCompleta");
+                datos.setearProcedimiento("SP_RegistrarOrdenSoloExistente");
 
-                // Los 9 parámetros deben ser seteados en la Capa de Datos:
+                // Seteo de los 5 parámetros
                 datos.setearParametro("@Patente", patente);
-                datos.setearParametro("@Marca", marca);
-                datos.setearParametro("@Modelo", modelo);
                 datos.setearParametro("@DniCliente", dniCliente);
-
-                datos.setearParametro("@MecanicoPrincipalDni", dniMecanicoPrincipal); // Usando el Parámetro 5
-
-                datos.setearParametro("@DescripcionOrden", descripcionOrden);
+                datos.setearParametro("@MecanicoDni", dniMecanico);
                 datos.setearParametro("@ServicioDesc", servicioDesc);
                 datos.setearParametro("@CostoServicio", costoServicio);
-
-                datos.setearParametro("@MecanicoDetalleDni", dniMecanicoDetalle); // Usando el Parámetro 9
 
                 datos.ejecutarAccion();
             }
@@ -50,9 +40,7 @@ namespace Negocio
             }
         }
 
-        /// <summary>
-        /// Actualiza el id_Estado de una reparación. Llama al SP_ActualizarEstado.
-        /// </summary>
+ 
         public void ActualizarEstado(int idReparacion, string nuevoEstado)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -73,14 +61,6 @@ namespace Negocio
             }
         }
 
-
-        // ========================================================================
-        // 2. MÉTODOS DE LECTURA (DQL - Llaman a VISTAS y Catálogos)
-        // ========================================================================
-
-        /// <summary>
-        /// Obtiene el catálogo de servicios (solo Descripción) para llenar un DropDownList.
-        /// </summary>
         public DataTable ObtenerCatalogoServicios()
         {
             AccesoDatos datos = new AccesoDatos();
@@ -209,6 +189,104 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw new Exception("Error al obtener la vista de días en taller: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public DataTable ObtenerCatalogoClientes()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                // id_TipoUsuario = 2 es el Cliente
+                datos.setearConsulta(@"
+            SELECT 
+                U.Dni AS Dni, 
+                U.Nombre + ' ' + U.Apellido AS NombreCompleto
+            FROM Usuario U
+            WHERE U.id_TipoUsuario = 2 
+            ORDER BY U.Apellido, U.Nombre");
+
+                datos.ejecutarLectura();
+
+                if (datos.Lector != null)
+                {
+                    tabla.Load(datos.Lector);
+                }
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el catálogo de clientes: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        /// <summary>
+        /// Obtiene las motos (Patente y Descripción) asociadas a un DNI de Cliente.
+        /// </summary>
+        public DataTable ObtenerMotosPorDniCliente(string dni)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                // La Patente y DNI deben recortarse para mayor robustez
+                datos.setearConsulta(@"
+            SELECT 
+                LTRIM(RTRIM(M.Patente)) AS Patente, 
+                M.Marca + ' ' + M.Modelo AS DescripcionMotoCompleta
+            FROM Motos M
+            JOIN Usuario U ON M.id_Usuario = U.id_Usuario
+            WHERE LTRIM(RTRIM(U.Dni)) = @DniCliente
+            ORDER BY M.Patente");
+
+                datos.setearParametro("@DniCliente", dni);
+                datos.ejecutarLectura();
+
+                if (datos.Lector != null)
+                {
+                    tabla.Load(datos.Lector);
+                }
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener las motos del cliente: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public DataTable ObtenerDetalleServiciosPorReparacion()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                // Consulta SQL a la vista ya existente
+                datos.setearConsulta("SELECT * FROM V_Detalle_Servicios_Por_Reparacion ORDER BY id_Reparacion, Costo_del_Servicio DESC");
+                datos.ejecutarLectura();
+
+                if (datos.Lector != null)
+                {
+                    tabla.Load(datos.Lector);
+                }
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el detalle de servicios por reparación: " + ex.Message);
             }
             finally
             {

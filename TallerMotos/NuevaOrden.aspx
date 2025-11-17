@@ -2,46 +2,36 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Registro de Nueva Orden de Reparación</h2>
-    <p>Complete los datos de la orden y del primer servicio para iniciar la transacción.</p>
+    <p>Seleccione el cliente, su moto y el servicio a realizar.</p>
     <hr />
 
     <div class="row">
         <div class="col-md-6">
-            <h4 class="mb-3">Datos de la Orden y Propietario</h4>
+            <h4 class="mb-3">🏍️ Datos de la Moto y Propietario</h4>
 
             <div class="form-group mb-3">
-                <label for="txtPatente">Patente de la Moto:</label>
-                <asp:TextBox ID="txtPatente" runat="server" CssClass="form-control" placeholder="Ej: ABC123BB" required />
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="txtDniCliente">DNI del Cliente (Dueño):</label>
-                <asp:TextBox ID="txtDniCliente" runat="server" CssClass="form-control" placeholder="Ej: 30300304" required />
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="txtMarca">Marca de la Moto:</label>
-                <asp:TextBox ID="txtMarca" runat="server" CssClass="form-control" placeholder="Ej: Honda" required />
+                <label for="ddlDniCliente">Cliente (DNI):</label>
+                <asp:DropDownList ID="ddlDniCliente" runat="server" 
+                    CssClass="form-control" 
+                    AutoPostBack="true" 
+                    OnSelectedIndexChanged="ddlDniCliente_SelectedIndexChanged" 
+                    required />
             </div>
 
             <div class="form-group mb-3">
-                <label for="txtModelo">Modelo de la Moto:</label>
-                <asp:TextBox ID="txtModelo" runat="server" CssClass="form-control" placeholder="Ej: CB 250" required />
-            </div>
-            
-            <div class="form-group mb-3">
-                <label for="ddlMecanico">Mecánico Asignado (Responsable y Ejecutor):</label>
-                <asp:DropDownList ID="ddlMecanico" runat="server" CssClass="form-control" required />
+                <label for="ddlPatente">Patente de la Moto:</label>
+                <asp:DropDownList ID="ddlPatente" runat="server" CssClass="form-control" required />
             </div>
 
-            <div class="form-group mb-3">
-                <label for="txtDescripcionOrden">Descripción del Problema:</label>
-                <asp:TextBox ID="txtDescripcionOrden" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control" />
             </div>
-        </div>
 
         <div class="col-md-6">
-            <h4 class="mb-3">Primer Servicio (Detalle de Costo)</h4>
+            <h4 class="mb-3">⚙️ Detalle de la Orden y Servicio</h4>
+
+            <div class="form-group mb-3">
+                <label for="ddlMecanico">Mecánico Asignado (Principal y Ejecutor):</label>
+                <asp:DropDownList ID="ddlMecanico" runat="server" CssClass="form-control" required />
+            </div>
 
             <div class="form-group mb-3">
                 <label for="ddlServicioDesc">Servicio a Realizar (Catálogo):</label>
@@ -53,7 +43,7 @@
                 <asp:TextBox ID="txtCostoServicio" runat="server" CssClass="form-control" placeholder="Ej: 12000.00" required />
             </div>
             
-            </div>
+        </div>
     </div>
 
     <hr />
