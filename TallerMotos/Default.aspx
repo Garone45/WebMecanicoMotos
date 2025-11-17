@@ -39,5 +39,13 @@
                 3. Actualizar costo x servicio (SP)
             </a>
         </div>
+
+         <div class="col-md-4">
+     <a href="ContadorServicios.aspx" class="btn btn-success btn-lg btn-block" style="padding: 20px;">
+         <span class="glyphicon glyphicon-plus"></span>
+         <br />
+         3. Funcion: Contador de Servicios.
+     </a>
+ </div>
     </div>
 </asp:Content>

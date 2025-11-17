@@ -348,5 +348,44 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public int ContarServiciosEjecutados(string dniMecanico)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                // 1. La consulta llama a la función escalar y devuelve el resultado como una tabla de 1x1.
+                datos.setearConsulta("SELECT dbo.FN_ContarServiciosEjecutadosPorMecanico(@DniMecanico)");
+                datos.setearParametro("@DniMecanico", dniMecanico);
+
+                datos.ejecutarLectura(); // Ejecuta la consulta (esto llenará el Lector/DataReader)
+
+                // 2. Cargar el resultado del Lector en un DataTable para procesarlo.
+                if (datos.Lector != null)
+                {
+                    tabla.Load(datos.Lector);
+                }
+
+                // 3. Procesar el resultado: si hay una fila, extraemos el primer valor.
+                if (tabla.Rows.Count > 0)
+                {
+                    // El valor de la función escalar está en la celda [0][0]
+                    // Usamos Convert.ToInt32 para asegurar que el valor sea un entero.
+                    return Convert.ToInt32(tabla.Rows[0][0]);
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                // Es crucial cerrar la conexión en el finally, pero lanzamos el error para CATCH.
+                throw new Exception("Error al llamar a la función de conteo: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

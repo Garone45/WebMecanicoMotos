@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|c:\\users\\tatto\\desktop\\repositorio programacion iii\\bdd\\webmecanicomotos\\tallermotos\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\reportes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\reportes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|c:\\users\\tatto\\desktop\\repositorio programacion iii\\bdd\\webmecanicomotos\\tallermotos\\contadorservicios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\contadorservicios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\costoxservicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\costoxservicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80BA77D5-AC1A-4D44-9486-066D9F786D4F}|Negocio\\Negocio.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\negocio\\reparacionnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80BA77D5-AC1A-4D44-9486-066D9F786D4F}|Negocio\\Negocio.csproj|solutionrelative:negocio\\reparacionnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\costoxservicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\costoxservicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|c:\\users\\tatto\\desktop\\repositorio programacion iii\\bdd\\webmecanicomotos\\tallermotos\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\costoxservicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -21,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\controlestado.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\controlestado.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\reportes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\reportes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\tallermotos\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B6D4944C-8372-489E-8134-55325937FDDA}|TallerMotos\\TallerMotos.csproj|solutionrelative:tallermotos\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Reportes.aspx",
               "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\Reportes.aspx",
               "RelativeDocumentMoniker": "TallerMotos\\Reportes.aspx",
@@ -51,11 +55,25 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2025-11-17T16:12:11.821Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ContadorServicios.aspx",
+              "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\ContadorServicios.aspx",
+              "RelativeDocumentMoniker": "TallerMotos\\ContadorServicios.aspx",
+              "ToolTip": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\ContadorServicios.aspx",
+              "RelativeToolTip": "TallerMotos\\ContadorServicios.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-17T19:24:57.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Site.Master",
               "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\Site.Master",
               "RelativeDocumentMoniker": "TallerMotos\\Site.Master",
@@ -68,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ControlEstado.aspx.cs",
               "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\ControlEstado.aspx.cs",
               "RelativeDocumentMoniker": "TallerMotos\\ControlEstado.aspx.cs",
@@ -80,19 +98,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CostoxServicio.aspx.cs",
               "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\CostoxServicio.aspx.cs",
               "RelativeDocumentMoniker": "TallerMotos\\CostoxServicio.aspx.cs",
               "ToolTip": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\CostoxServicio.aspx.cs",
               "RelativeToolTip": "TallerMotos\\CostoxServicio.aspx.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wCcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T15:59:49.53Z"
+              "WhenOpened": "2025-11-17T15:59:49.53Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "CostoxServicio.aspx",
               "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\CostoxServicio.aspx",
               "RelativeDocumentMoniker": "TallerMotos\\CostoxServicio.aspx",
@@ -104,27 +123,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Default.aspx",
               "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\Default.aspx",
               "RelativeDocumentMoniker": "TallerMotos\\Default.aspx",
-              "ToolTip": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\Default.aspx",
-              "RelativeToolTip": "TallerMotos\\Default.aspx",
+              "ToolTip": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\TallerMotos\\Default.aspx*",
+              "RelativeToolTip": "TallerMotos\\Default.aspx*",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-17T15:53:35.556Z"
+              "WhenOpened": "2025-11-17T15:53:35.556Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ReparacionNegocio.cs",
               "DocumentMoniker": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\Negocio\\ReparacionNegocio.cs",
               "RelativeDocumentMoniker": "Negocio\\ReparacionNegocio.cs",
               "ToolTip": "C:\\Users\\TATTO\\Desktop\\Repositorio Programacion III\\BDD\\WebMecanicoMotos\\Negocio\\ReparacionNegocio.cs",
               "RelativeToolTip": "Negocio\\ReparacionNegocio.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAYwEUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAEcBAAAAAAAAAAAAwIQBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T12:54:20.311Z"
+              "WhenOpened": "2025-11-17T12:54:20.311Z",
+              "EditorCaption": ""
             }
           ]
         }
