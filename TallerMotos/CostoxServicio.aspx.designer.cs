@@ -11,52 +11,43 @@ namespace TallerMotos
 {
 
 
-    public partial class Reportes
+    public partial class CostoxServicio
     {
 
         /// <summary>
-        /// Control GridViewActivas.
+        /// Control txtDetalleId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewActivas;
+        protected global::System.Web.UI.WebControls.TextBox txtDetalleId;
 
         /// <summary>
-        /// Control GridViewProductividad.
+        /// Control txtCostoxServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewProductividad;
+        protected global::System.Web.UI.WebControls.TextBox txtCostoxServicio;
 
         /// <summary>
-        /// Control GridViewDiasTaller.
+        /// Control btnActualizar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewDiasTaller;
+        protected global::System.Web.UI.WebControls.Button btnActualizar;
 
         /// <summary>
-        /// Control GridViewDetalleServicios.
+        /// Control lblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewDetalleServicios;
-
-        /// <summary>
-        /// Control GridViewFacturacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewFacturacion;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }

@@ -30,6 +30,9 @@ namespace TallerMotos
                 DataTable dtDetalleServicios = negocio.ObtenerDetalleServiciosPorReparacion(); // Usa el método que agregaste a ReparacionNegocio
                 GridViewDetalleServicios.DataSource = dtDetalleServicios;
                 GridViewDetalleServicios.DataBind();
+
+                GridViewFacturacion.DataSource = negocio.listarResumenFacturacion();
+                GridViewFacturacion.DataBind();
             }
             catch (Exception ex)
             {

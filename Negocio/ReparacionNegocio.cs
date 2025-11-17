@@ -62,6 +62,32 @@ namespace Negocio
             }
         }
 
+        public void ActualizarCosto(int idDetalle, string nuevoCosto)
+        {
+            
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                decimal costoDecimal;
+                if (!decimal.TryParse(nuevoCosto, out costoDecimal))
+                {
+                    throw new Exception("El nuevo costo no es un número válido.");
+                }
+                datos.setearProcedimiento("SP_ActualizarCostoxServicio");
+                datos.setearParametro("@idDetalle", idDetalle);
+                datos.setearParametro("@NuevoCosto", nuevoCosto);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public DataTable ObtenerCatalogoServicios()
         {
             AccesoDatos datos = new AccesoDatos();
@@ -289,6 +315,33 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw new Exception("Error al obtener el detalle de servicios por reparación: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public DataTable listarResumenFacturacion()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                // Consulta SQL a la vista ya existente
+                datos.setearConsulta("SELECT * FROM V_Resumen_Facturacion ORDER BY id_Reparacion DESC");
+                datos.ejecutarLectura();
+
+                if (datos.Lector != null)
+                {
+                    tabla.Load(datos.Lector);
+                }
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el resumen de facturacion por reparación: " + ex.Message);
             }
             finally
             {

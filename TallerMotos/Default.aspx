@@ -27,7 +27,16 @@
         <div class="col-md-4">
             <a href="NuevaOrden.aspx" class="btn btn-success btn-lg btn-block" style="padding: 20px;">
                 <span class="glyphicon glyphicon-plus"></span>
-                <br/> 3. Registrar Nueva Orden (SP)
+                <br />
+                3. Registrar Nueva Orden (SP)
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="CostoxServicio.aspx" class="btn btn-success btn-lg btn-block" style="padding: 20px;">
+                <span class="glyphicon glyphicon-plus"></span>
+                <br />
+                3. Actualizar costo x servicio (SP)
             </a>
         </div>
     </div>

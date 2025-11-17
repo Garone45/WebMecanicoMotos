@@ -119,6 +119,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="ControlEstado.aspx" />
+    <Content Include="CostoxServicio.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="ControlEstado.aspx.designer.cs">
       <DependentUpon>ControlEstado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CostoxServicio.aspx.cs">
+      <DependentUpon>CostoxServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CostoxServicio.aspx.designer.cs">
+      <DependentUpon>CostoxServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
